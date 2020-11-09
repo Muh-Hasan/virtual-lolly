@@ -7,6 +7,46 @@ body{
     flex-wrap: wrap;
     justify-content: center;
 }
-.lolly-list .lollipop{
-    height: 350px;
+.lolly-list .lollipop .lolly-form{
+    height: 300px;
 }
+.container{
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.form-flex{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.colorContainer {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: space-around;
+    height: 75%;
+    margin-top: 1rem;
+    padding: 0 40px;
+  }
+  .colorContainer label {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: 20px;
+    overflow: hidden;
+  }
+  .colorContainer label input {
+    width: 80px;
+    height: 80px;
+    margin-top: -10px;
+    margin-left: -10px;
+  }
+  .main-form{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }

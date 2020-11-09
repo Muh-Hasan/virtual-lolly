@@ -5,12 +5,12 @@ import { navigate } from 'gatsby'
 
 export default function Home() {
   return (
-    <div>
+    <div className='container'>
       <div>
         <Header />
       </div>
       <div className='lolly-list'>
-        <div>
+        <div className='lolly-form'>
           <Lolly
             fillLollyBottom="#000"
             fillLollyMiddle="#fefefe"
