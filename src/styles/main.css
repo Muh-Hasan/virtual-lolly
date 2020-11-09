@@ -44,7 +44,7 @@ body{
     margin-top: -10px;
     margin-left: -10px;
   }
-  .main-form{
+  .form-main{
       display: flex;
       flex-direction: column;
       justify-content: center;
