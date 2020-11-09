@@ -1,6 +1,12 @@
 import React from "react"
 
-export default function Lolly() {
+interface props {
+    fillLollyTop: string | undefined;
+    fillLollyMiddle: string | undefined;
+    fillLollyBottom: string | undefined;
+  }
+
+  const Lolly: React.FC<props> = ({fillLollyTop , fillLollyMiddle , fillLollyBottom}) =>  {
   return (
     <svg
       className="lollipop"
@@ -62,13 +68,13 @@ export default function Lolly() {
           </mask>
           <use
             className="lollyBottom"
-            fill="#deaa43"
+            fill={fillLollyBottom}
             fillRule="nonzero"
             href="#path-1"
           ></use>
           <rect
             className="lollyTop"
-            fill="#d52358"
+            fill={fillLollyTop}
             fillRule="nonzero"
             mask="url(#mask-2)"
             x="-25"
@@ -78,7 +84,7 @@ export default function Lolly() {
           ></rect>
           <rect
             className="lollyMiddle"
-            fill="#e95946"
+            fill={fillLollyMiddle}
             fillRule="nonzero"
             mask="url(#mask-2)"
             x="-29"
@@ -140,3 +146,4 @@ export default function Lolly() {
     </svg>
   )
 }
+export default Lolly

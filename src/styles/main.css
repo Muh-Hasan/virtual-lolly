@@ -1,0 +1,12 @@
+body{
+    text-align: center;
+}
+.lolly-list{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.lolly-list .lollipop{
+    height: 350px;
+}
