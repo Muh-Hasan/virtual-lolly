@@ -14,29 +14,24 @@ const typeDefs = gql`
     flavourTop: String!
     flavourMiddle: String!
     flavourBottom: String!
+    path: String!
+  }
+  type Mutations{
+    createLolly(recipentName: String! ,message: String!,senderName: String!,flavourTop: String!,flavourMiddle: String!,flavourBottom: String!): Lolly
   }
 `
-
-const authors = [
-  { id: 1, name: 'Terry Pratchett', married: false },
-  { id: 2, name: 'Stephen King', married: true },
-  { id: 3, name: 'JK Rowling', married: false },
-]
 
 const resolvers = {
   Query: {
     hello: () => {
       return 'Hello, world!'
     },
-    allAuthors: () => {
-      return authors
-    },
-    author: () => {},
-    authorByName: (root, args) => {
-      console.log('hihhihi', args.name)
-      return authors.find((author) => author.name === args.name) || 'NOTFOUND'
-    },
   },
+  Mutations : {
+    createLolly: (_ , args) => {
+      console.log(args);
+    }
+  }
 }
 
 const server = new ApolloServer({
