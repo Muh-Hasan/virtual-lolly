@@ -1,22 +1,42 @@
-import React, { useRef, useState } from "react"
+import React, { useState } from "react"
 import Header from "../components/header"
 import Lolly from "../components/Lolly"
+import { useMutation } from "@apollo/client"
+import gql from "graphql-tag"
 
-export default function CreateNew() {
-    
-    const [flavourTop , setFlavourTop] = useState('#ef0078')
-    const [flavourMiddle , setFlavourMiddle] = useState('#ff8d00')
-    const [flavourEnd , setFlavourEnd] = useState('#dd0074')
-    const toRef = useRef()
-    const messageRef = useRef()
-    const fromRef = useRef()
-    const handleSubmit = () => {
-        console.log(toRef.current.value);
-        console.log(messageRef.current.value);
-        console.log(fromRef.current.value);
+const createLollyMutation = gql`
+    mutation createLolly($recipientName: String!, $message: String!, $senderName: String!, $flavourTop: String!, $flavourMiddle: String!,$flavourBottom: String!) {
+        createLolly(recipientName: $recipientName, message: $message, senderName: $senderName, flavourTop: $flavourTop, flavourMiddle: $flavourMiddle,flavourBottom: $flavourBottom) {
+            message
+            path
+        }
     }
-    
-    return (
+`
+export default function CreateNew() {
+  const [createLolly] = useMutation(createLollyMutation)
+
+  const [flavourTop, setFlavourTop] = useState("#ef0078")
+  const [flavourMiddle, setFlavourMiddle] = useState("#ff8d00")
+  const [flavourEnd, setFlavourEnd] = useState("#dd0074")
+  const [recipentName , setRecipentName] = useState('')
+  const [message , setMessage] = useState('')
+  const [senderName , setSenderName] = useState('')
+  
+  const handleSubmit = async () => {
+    const result = await createLolly({
+      variables: {
+        recipentName: recipentName,
+        message: message,
+        senderName: senderName,
+        flavourTop: flavourTop,
+        flavourBottom: flavourEnd,
+        flavourMiddle: flavourMiddle,
+      },
+    })
+    console.log(result)
+  }
+
+  return (
     <div className="container">
       <Header />
       <div className="form-flex">
@@ -29,31 +49,40 @@ export default function CreateNew() {
         </div>
         <div className="colorContainer">
           <label>
-            <input type="color" name="top" value={flavourTop} onChange={(e) => setFlavourTop(e.target.value)} />
+            <input
+              type="color"
+              name="top"
+              value={flavourTop}
+              onChange={e => setFlavourTop(e.target.value)}
+            />
           </label>
           <label>
-            <input type="color" name="middle" value={flavourMiddle} onChange={(e) => setFlavourMiddle(e.target.value)}/>
+            <input
+              type="color"
+              name="middle"
+              value={flavourMiddle}
+              onChange={e => setFlavourMiddle(e.target.value)}
+            />
           </label>
           <label>
-            <input type="color" name="bottom" value={flavourEnd} onChange={(e) => setFlavourEnd(e.target.value)}/>
+            <input
+              type="color"
+              name="bottom"
+              value={flavourEnd}
+              onChange={e => setFlavourEnd(e.target.value)}
+            />
           </label>
         </div>
-        <div className='form-main'>
-            <label>
-                To
-            </label>
-                <input type='text' ref={toRef}/>
-            <label>
-                Message
-            </label>
-                <textarea rows= {15} columns='30' ref={messageRef} />
-            <label>
-                From
-            </label>
-                <input type='text' ref={fromRef} />
-        <div>
+        <div className="form-main">
+          <label>To</label>
+          <input type="text" required onChange={(e) => setRecipentName(e.target.value)} />
+          <label>Message</label>
+          <textarea rows={15} columns="30" required onChange={(e) => setMessage(e.target.value)}/>
+          <label>From</label>
+          <input type="text" required onChange={(e) => setSenderName(e.target.value)} />
+          <div>
             <button onClick={handleSubmit}>create</button>
-        </div>
+          </div>
         </div>
       </div>
     </div>
