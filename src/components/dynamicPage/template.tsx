@@ -29,7 +29,6 @@ export default function LollyPage({ pathContext: { lollyPath } }) {
   if (error) {
     return <h4>error</h4>
   }
-
   return (
     <div>
       <Header />
