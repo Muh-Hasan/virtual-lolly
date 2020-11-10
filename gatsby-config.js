@@ -8,7 +8,7 @@ module.exports = {
         // This is the field under which it's accessible
         fieldName: "Lollies",
         // URL to query from
-        url: "http://localhost:8888/.netlify/functions/newLolly",
+        url: "https://virtuallolly-serverless.netlify.app/.netlify/functions/newLolly",
       },
     },
   ],
