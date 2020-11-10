@@ -6,48 +6,31 @@ import { navigate } from 'gatsby'
 export default function Home() {
   return (
     <div className='container'>
-      <div>
         <Header />
-      </div>
       <div className='lolly-list'>
-        <div className='lolly-form'>
-          <Lolly
-            fillLollyBottom="#000"
-            fillLollyMiddle="#fefefe"
-            fillLollyTop="#ffff"
-          />
-        </div>
-        <div>
-          <Lolly
-            fillLollyBottom="#000"
-            fillLollyMiddle="#fefefe"
-            fillLollyTop="#ffff"
-          />
-        </div>
-        <div>
-          <Lolly
-            fillLollyBottom="#000"
-            fillLollyMiddle="#fefefe"
-            fillLollyTop="#ffff"
-          />
-        </div>
-        <div>
-          <Lolly
-            fillLollyBottom="#000"
-            fillLollyMiddle="#fefefe"
-            fillLollyTop="#ffff"
-          />
-        </div>
-        <div>
-          <Lolly
-            fillLollyBottom="#000"
-            fillLollyMiddle="#fefefe"
-            fillLollyTop="#ffff"
-          />
-        </div>
+      <Lolly
+          fillLollyTop="#6b6bde"
+          fillLollyMiddle="#4ac383"
+          fillLollyBottom="#d2ec27"
+        />
+        <Lolly
+          fillLollyTop="#b71616"
+          fillLollyMiddle="#bf10f1"
+          fillLollyBottom="#10adf1"
+        />
+        <Lolly
+          fillLollyTop="#ffc107"
+          fillLollyMiddle="#00a97e"
+          fillLollyBottom="#ec398f"
+        />
+        <Lolly
+          fillLollyTop="#ffc107"
+          fillLollyMiddle="#00a97e"
+          fillLollyBottom="#ec398f"
+        />
       </div>
       <div>
-        <button onClick={() => navigate('/createNew')}>Create New</button>
+        <button className='' onClick={() => navigate('/createNew')}>Create New</button>
       </div>
     </div>
   )

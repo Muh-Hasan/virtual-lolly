@@ -4,7 +4,7 @@ import Lolly from "../components/Lolly"
 import { useMutation } from "@apollo/client"
 import gql from "graphql-tag"
 import shortid from "shortid"
-import { navigate } from 'gatsby'
+import { navigate } from "gatsby"
 
 const createLollyMutation = gql`
   mutation createLolly(
@@ -54,13 +54,13 @@ export default function CreateNew() {
         lollyPath: id,
       },
     })
-    navigate(`/lollies/${id}`)
+    navigate(`lollies/${id}`)
   }
 
   return (
     <div className="container">
       <Header />
-      <div className="form-flex">
+      <div className="lollyContainer">
         <div>
           <Lolly
             fillLollyBottom={flavourEnd}
@@ -94,7 +94,7 @@ export default function CreateNew() {
             />
           </label>
         </div>
-        <div className="form-main">
+        <div className="formContainer">
           <label>To</label>
           <input
             type="text"
@@ -103,8 +103,8 @@ export default function CreateNew() {
           />
           <label>Message</label>
           <textarea
-            rows={15}
-            columns="30"
+            style={{ resize: "none" }}
+            rows={7}
             required
             onChange={e => setMessage(e.target.value)}
           />

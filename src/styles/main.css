@@ -1,52 +1,114 @@
-body{
-    text-align: center;
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background-color: #1a202c;
 }
-.lolly-list{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
 }
-.lolly-list .lollipop .lolly-form{
-    height: 300px;
+.header-container {
+  color: white;
+  font-family: Yellowtail, cursive;
+  text-align: center;
+  font-weight: 300;
 }
-.container{
-    width: 800px;
-    margin-left: auto;
-    margin-right: auto;
+
+.lolly-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
-.form-flex{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+.lolly-list .lollipop {
+  height: 300px;
+}
+
+.createLollyButton {
+  font-size: 1.5em;
+  background-color: #272727;
+  border-style: solid;
+  border-radius: 20em;
+  border-color: violet;
+  padding: 1rem;
+  color: white;
+  margin-bottom: 2rem;
+}
+.createLollyButton:hover {
+  background-color: rgba(240, 47, 159, 0.4);
+}
+
+.createLollyButton:focus {
+  border: none;
+  outline: none;
+}
+.lollyContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 .colorContainer {
-    display: flex;
-    flex-direction: column;
-    align-content: space-around;
-    justify-content: space-around;
-    height: 75%;
-    margin-top: 1rem;
-    padding: 0 40px;
-  }
-  .colorContainer label {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    margin: 20px;
-    overflow: hidden;
-  }
-  .colorContainer label input {
-    width: 80px;
-    height: 80px;
-    margin-top: -10px;
-    margin-left: -10px;
-  }
-  .form-main{
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: space-around;
+  height: 75%;
+  margin-top: 1rem;
+  padding: 0 40px;
+}
+.colorContainer label {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 20px;
+  overflow: hidden;
+}
+.colorContainer input {
+  width: 80px;
+  height: 80px;
+  margin-top: -10px;
+  margin-left: -10px;
+}
+.formContainer {
+  background-color: #2d3748;
+  padding: 30px 30px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 330px;
+}
+.formContainer input,
+.formContainer textarea {
+  padding: 8px 8px;
+  width: 100%;
+  font-size: 14px;
+  border-radius: 2px;
+  border: none;
+}
+.formContainer label {
+  color: #cbd5e0;
+  font-weight: 100;
+  font-size: 15px;
+  padding: 0px 0 4px 0;
+  text-transform: capitalize;
+}
+.btn-fornt{
+    width: 200px;
+  font-size: 24px;
+  border: 1px solid #cbd5e0;
+  text-transform: capitalize;
+  padding: 10px 10px;
+  border-radius: 50px;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+}
+.btn-front:hover {
+    background-color: #4c51bf;
   }
