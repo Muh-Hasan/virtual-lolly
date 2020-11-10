@@ -1,8 +1,7 @@
 const { ApolloServer, gql } = require("apollo-server-lambda")
 const faunadb = require("faunadb")
 q = faunadb.query
-
-require("dotenv").config()
+;(axios = require("axios")), require("dotenv").config()
 
 const client = new faunadb.Client({
   secret: process.env.DB_SECRET,
@@ -10,8 +9,8 @@ const client = new faunadb.Client({
 
 const typeDefs = gql`
   type Query {
-    getAllLollies : [Lolly!]
-    getLollyByPath(lollyPath : String!): Lolly
+    getAllLollies: [Lolly!]
+    getLollyByPath(lollyPath: String!): Lolly
   }
   type Lolly {
     recipientName: String!
@@ -44,6 +43,7 @@ const resolvers = {
           q.Lambda(x => q.Get(x))
         )
       )
+      console.log(result)
       return result.data.map(d => {
         return {
           recipientName: d.data.recipientName,
@@ -58,8 +58,9 @@ const resolvers = {
     },
     getLollyByPath: async (_, { lollyPath }) => {
       try {
+        console.log(lollyPath)
         var result = await client.query(
-          q.Get(q.Match(q.Index("Lolly_by_path"), lollyPath))
+          q.Get(q.Match(q.Index("lolly_by_slug"), lollyPath))
         )
         return result.data
       } catch (e) {
@@ -75,7 +76,15 @@ const resolvers = {
             data: args,
           })
         )
-        console.log(result.ref.id)
+        axios
+          .post("https://api.netlify.com/build_hooks/5faabfb70bd16c038133583c")
+          .then(function (response) {
+            console.log(response)
+          })
+          .catch(function (error) {
+            console.error(error)
+          })
+
         return result.data
       } catch (error) {
         return error.toString()
