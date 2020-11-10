@@ -11,7 +11,7 @@ const client = new faunadb.Client({
 const typeDefs = gql`
   type Query {
     getAllLollies : [Lolly!]
-    getLollyByPath(lollyPath): Lolly
+    getLollyByPath(lollyPath : String!): Lolly
   }
   type Lolly {
     recipientName: String!
@@ -56,7 +56,6 @@ const resolvers = {
         }
       })
     },
-
     getLollyByPath: async (_, { lollyPath }) => {
       try {
         var result = await client.query(

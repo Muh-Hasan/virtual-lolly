@@ -29,8 +29,8 @@ export default function Home() {
           fillLollyBottom="#ec398f"
         />
       </div>
-      <div>
-        <button className='' onClick={() => navigate('/createNew')}>Create New</button>
+      <div className='btn-wrapper'>
+        <button className='' onClick={() => navigate('/createNew')}>Make a new lolly to send to a friend</button>
       </div>
     </div>
   )

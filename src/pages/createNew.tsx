@@ -40,8 +40,10 @@ export default function CreateNew() {
   const [recipentName, setRecipentName] = useState("")
   const [message, setMessage] = useState("")
   const [senderName, setSenderName] = useState("")
+  const [loading, setLoading] = useState(false)
 
   const handleSubmit = async () => {
+    setLoading(true)
     const id = shortid.generate()
     const result = await createLolly({
       variables: {
@@ -54,7 +56,8 @@ export default function CreateNew() {
         lollyPath: id,
       },
     })
-    navigate(`lollies/${id}`)
+    setLoading(false)
+    navigate(`/lollies/${id}`)
   }
 
   return (
@@ -114,8 +117,10 @@ export default function CreateNew() {
             required
             onChange={e => setSenderName(e.target.value)}
           />
-          <div>
-            <button onClick={handleSubmit}>create</button>
+          <div className="formBtn-wrapper">
+            <button onClick={handleSubmit}>
+              {loading ? "freeze..." : "freeze"}
+            </button>
           </div>
         </div>
       </div>
