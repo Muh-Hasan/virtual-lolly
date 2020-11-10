@@ -1,9 +1,10 @@
 import React, { useState } from "react"
 import Header from "../components/header"
 import Lolly from "../components/Lolly"
-import { useMutation, useQuery } from "@apollo/client"
+import { useMutation } from "@apollo/client"
 import gql from "graphql-tag"
 import shortid from "shortid"
+import { navigate } from 'gatsby'
 
 const createLollyMutation = gql`
   mutation createLolly(
@@ -53,6 +54,7 @@ export default function CreateNew() {
         lollyPath: id,
       },
     })
+    navigate(`/lollies/${id}`)
   }
 
   return (
