@@ -1,5 +1,5 @@
 import React from "react"
-import Lolly from "../lolly"
+import Lolly from "../lolly/index"
 import gql from "graphql-tag"
 import Header from "../header"
 import { Link } from "gatsby"
@@ -25,9 +25,11 @@ export default function LollyPage({ pathContext: { lollyPath } }) {
   })
   console.log(data);
   
+  
   if (error) {
     return <h4>error</h4>
   }
+  
   return (
     <div>
       <Header />

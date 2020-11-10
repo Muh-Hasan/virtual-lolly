@@ -7,6 +7,7 @@ interface props {
   }
 
   const Lolly: React.FC<props> = ({fillLollyTop , fillLollyMiddle , fillLollyBottom}) =>  {
+    
   return (
     <svg
       className="lollipop"
