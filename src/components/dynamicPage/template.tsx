@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 import { useQuery } from "@apollo/client"
 
 export const query = gql`
-  query MyQuery($lollyPath: String!) {
+  query getLollyByPath($lollyPath: String!) {
     getLollyByPath(lollyPath: $lollyPath) {
       flavorBot
       flavorMid
@@ -29,7 +29,7 @@ export default function LollyPage({ pathContext: { lollyPath } }) {
   if (error) {
     return <h4>error</h4>
   }
-  
+
   return (
     <div>
       <Header />
