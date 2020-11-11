@@ -19,7 +19,7 @@ export const query = gql`
   }
 `
 
-export default function LollyPage({ pathContext: { lollyPath } }) {
+export default function LollyPage({ pathContext: { lollyPath  } }) {
   const { data, loading, error } = useQuery(query, {
     variables: { lollyPath: lollyPath },
   })
