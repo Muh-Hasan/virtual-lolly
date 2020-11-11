@@ -10,7 +10,7 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     }
   `)
-
+console.log(data);
   data.Lollies.getAllLollies.forEach(({ lollyPath  }) => {
     actions.createPage({
       path: `lollies/${lollyPath}`,
