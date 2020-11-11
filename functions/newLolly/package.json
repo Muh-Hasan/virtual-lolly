@@ -17,6 +17,7 @@
   "dependencies": {
     "apollo-server-lambda": "^2.18.2",
     "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
     "faunadb": "^3.0.1",
     "gatsby-source-graphql": "^2.7.7",
     "graphql": "^14.1.1"
